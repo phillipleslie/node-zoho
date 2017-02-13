@@ -16,7 +16,7 @@ class Potentials extends CrmModule
   deleteRecords: ->
     throw new Error('Not Implemented')
 
-  convertLead: (lead_id, options, cb) ->
+  convertLead: (lead_id, options, options2, cb) ->
     if not lead_id
       throw new Error('Requires a Lead Id')
     if not options
@@ -35,6 +35,8 @@ class Potentials extends CrmModule
     else if options.createPotential == true
       records.push(options.potential)
 
+    if options2
+      records.push(options2)
 
     query = {
       leadId: lead_id
